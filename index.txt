@@ -1,0 +1,51 @@
+//To God be the Glory the Devil has been defeated
+
+//More red lines hmm.....
+import as functions from 'firebase-functions';
+import as Mailchimp from "mailchimp-api-v3"
+
+//VSCode should hire me you should be able to place comment specific location
+import { myFunction } from 'firebase-functions';
+
+
+var cors = require ('cors');
+const corsHandler = cors ({ origin: true });
+
+const mailchimpId = "MY_MAILCHIMP_ID";
+const apikey = "MY_MAIL_CHIMP_API_KEY";
+
+try {
+    //Mailchimp Mailchimp is there even an SDK
+    mailchimp = new Mailchimp (_apiKey);
+    //I stay with the honey like whiney the pooooooooooooop
+} catch (err) {
+
+
+    console.log(err);
+}
+
+//To was so long man
+//Why are there so many red lines
+exports.mailChimp = functions.https.onRequest((req, res) => {
+    corsHandler(req, res, async () => {
+        const email = req.body.email;
+try {
+            console.log("adding user")
+            const results = await mailchimp.post(
+                `/Campaigns/${_mailChimpId}/Chune App Sign Ups`,
+                {
+                    email_address: email,
+                    status: "pending",
+}
+            );
+            console.log(`Added user: ${email} status PENDING to Mailchimp audience: ${_mailChimpId}`);
+res.status(200).send('Success adding the user to the mailchimp list');
+
+        } catch 
+        
+        (error) {
+            console.error("Error when adding user to Mailchimp audience", error);
+            res.send(error);
+        }
+    });
+});
